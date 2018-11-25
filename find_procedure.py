@@ -53,6 +53,7 @@ def search_files(filename, file_list):
         if filename.lower() in file.lower() and ".sql" in file:
             print(file)
             l.append(file)
+    print("Количество найденных файлов: {}".format(len(l)))
     return l
 
 
@@ -72,4 +73,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-    pass
