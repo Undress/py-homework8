@@ -47,12 +47,17 @@ def get_file_list():
     return migrations_content
 
 
-def search_files(filename, file_list):
+def search_files(content, file_list):
     l = []
     for file in file_list:
-        if filename.lower() in file.lower() and ".sql" in file:
-            print(file)
-            l.append(file)
+        if ".sql" in file:
+            file_content = open(file, "r")
+            for line in file_content:
+                if content.lower() in line.lower():
+                    print(file)
+                    l.append(file)
+                    break
+
     print("Количество найденных файлов: {}".format(len(l)))
     return l
 
